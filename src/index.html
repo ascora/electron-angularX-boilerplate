@@ -1,0 +1,93 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>electron-quick-start</title>
+    <script>
+        document.write('<base href="' + document.location + '" />');
+    </script>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+   <!-- <script src="https://bitwiseshiftleft.github.io/sjcl/sjcl.js"></script>-->
+
+    <script>
+        window.$ = window.jQuery = require('./jquery-3.1.1.min.js');
+        window.os = require('os');
+       
+        window.path = require('path');
+        window.app = require('electron').app;
+        window.remote = require('electron').remote;
+        window.shell = require('electron').shell;
+       
+        var fs = require('fs');
+        window.storage =require('electron-json-storage');
+    </script>
+    <script>
+
+    </script>
+
+    <script>
+        function close() {
+            console.log("document.getElementById('close-btn').click()");
+            document.getElementById("close-btn").click();
+        }
+
+        function mini() {
+            console.log("document.getElementById('min-btn').click()");
+            document.getElementById("min-btn").click();
+        }
+
+        function maxi() {
+            console.log("document.getElementById('max-btn').click()");
+            document.getElementById("max-btn").click();
+        }
+        function restore() {
+            console.log("document.getElementById('restore-btn').click()");
+            document.getElementById("restore-btn").click();
+        }
+
+        document.onreadystatechange = function () {
+            document.getElementById("min-btn").addEventListener("click", function (e) {
+                console.log("min-btn event");
+                const window = remote.getCurrentWindow();
+                window.minimize();
+            });
+            document.getElementById("max-btn").addEventListener("click", function (e) {
+                console.log("max-btn event");
+                const window = remote.getCurrentWindow();
+                window.maximize();
+                console.log("window.maximize();");
+            });
+            document.getElementById("restore-btn").addEventListener("click", function (e) {
+                console.log("max-btn event");
+                const window = remote.getCurrentWindow();
+                window.unmaximize();
+                 console.log("window.unmaximize();");
+            });
+
+            document.getElementById("close-btn").addEventListener("click", function (e) {
+                console.log("close()");
+                const window = remote.getCurrentWindow();
+                window.close();
+            });
+        };
+       
+    </script>
+
+
+
+</head>
+
+<body>
+<app-root>
+    loading...
+</app-root>
+<!--We are using Node.js <script>document.write(process.versions.node)</script>,
+Chromium <script>document.write(process.versions.chrome)</script>,
+and Electron <script>document.write(process.versions.electron)</script>.-->
+<button id="min-btn"  hidden="hidden">-</button>
+<button id="max-btn" hidden="hidden">+</button>
+<button id="restore-btn" hidden="hidden">x</button>
+<button id="close-btn" hidden="hidden">x</button>
+</body>
+
+</html>

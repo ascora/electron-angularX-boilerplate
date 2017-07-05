@@ -1,0 +1,7 @@
+{
+  "name": "electron-angularX-boilerplate",
+  "version": "1.0.0",
+  "main": "main.js",
+  "repository": "https://github.com/thardes2/electron-angularX-boilerplate",
+  "author": "Tobias Hardes / Ascora GmbH",
+  "license": "MIT"
